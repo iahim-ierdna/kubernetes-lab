@@ -1,0 +1,5 @@
+This is a repository of scripts, mostly, I made, while going through the course, as well as stuff I already knew/done beforehand. All combined.
+
+Some of the scripts veer away from the course material, but are still tighly related to kubernetes.
+
+at the moment of writing this file, I am using kubernetes 1.25, while the course is on 1.20
