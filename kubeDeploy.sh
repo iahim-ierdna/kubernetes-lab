@@ -59,6 +59,7 @@ kubectl get nodes
 kubectl get pods -A
 
 #we can generate a join command with a 364 day ttl. by default ttl is 24h. after that, we'd have to generate a new token if we want to add extra nodes.
+#--ttl 0 will create a permanent token.
 kubeadm token create --ttl 8760h --print-join-command
 
 #we can delete the first in the list token by running:
