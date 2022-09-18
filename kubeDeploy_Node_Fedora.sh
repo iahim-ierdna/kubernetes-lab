@@ -38,7 +38,6 @@ EOF
 
 yum update
 
-
 VERSION=$(yum list --showduplicates kubectl --disableexcludes=kubernetes | tail -n 2 | head -n 1 | cut -d' ' -f24)
 yum install -y kubelet-$VERSION kubeadm-$VERSION kubectl-$VERSION
 
@@ -49,4 +48,6 @@ yum remove zram-generator-defaults
 swapoff -a
 
 systemctl enable --now containerd kubelet
+
+#now run the join command.
 
