@@ -22,6 +22,6 @@ kubectl uncordon $(hostname)
 
 kubectl get nodes
 
-read
+read -p "Press any key to continue:"
 
 done
