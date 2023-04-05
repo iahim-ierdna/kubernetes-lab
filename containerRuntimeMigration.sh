@@ -27,7 +27,7 @@ EOF
 
 sudo sysctl --system
 
-sudo yum install containerd
+sudo yum install containerd -y
 
 sudo mkdir  -p /etc/containerd
 
