@@ -1,3 +1,5 @@
+# based on this https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
+
 for ver in 4 5 6
 do
 
