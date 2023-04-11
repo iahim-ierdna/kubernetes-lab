@@ -4,7 +4,7 @@ sudo sed -i.bak 's/exclude=kube\*/#exclude=kube\*/' /etc/yum.repos.d/kubernetes.
 for ver in 4 5 6
 do
 
-VERSION=$(yum list --showduplicates kubeadm --disableexcludes=kubernetes -y | grep 1.2$ver| tail -n 1 | head -n 1 | cut -d' ' -f24)
+VERSION=$(yum list --showduplicates kubeadm --disableexcludes=kubernetes -y | grep 1.2$ver| tail -n 1 | head -n 1 | cut -d' ' -f24 | cut -d'-' -f1)
 if [ $(echo $VERSION | cut -d'.' -f2) -le $(rpm -qa | grep kubeadm | cut -d'.' -f2) ]
 then
 echo kubeadm-$VERSION is already installed. Skipping rope...
