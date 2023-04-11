@@ -5,7 +5,7 @@ for ver in 4 5 6
 do
 
 VERSION=$(yum list --showduplicates kubeadm --disableexcludes=kubernetes -y | grep 1.2$ver| tail -n 1 | head -n 1 | cut -d' ' -f24)
-if [ "$(echo kubeadm-$VERSION)" == "$(rpm -qa | grep kubeadm | cut -d'.' -f1-3)" ]
+if [ $(echo $VERSION | cut -d'.' -f2) -le $(rpm -qa | grep kubeadm | cut -d'.' -f2) ]
 then
 echo kubeadm-$VERSION is already installed. Skipping rope...
 continue
@@ -24,7 +24,7 @@ read -p "Press any key to continue:"
         sudo kubeadm upgrade plan
 
         read -p "Please review the upgrade plan details above and press a key to continue if you agree it's safe."
-        
+
         sudo kubeadm upgrade apply v$VERSION
 else
 
