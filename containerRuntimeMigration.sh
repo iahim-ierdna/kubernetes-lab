@@ -33,3 +33,7 @@ sudo systemctl start kubelet
 kubectl uncordon  $(hostname | tr '[:upper:]' '[:lower:]')
 
 kubectl get nodes -o wide
+
+sudo rm /var/run/docker{shim.sock,.sock}
+
+sudo sh -c 'echo "#!/bin/sh" > /sbin/docker && chmod 0100 /sbin/docker'
